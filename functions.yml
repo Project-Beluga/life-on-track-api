@@ -1,0 +1,18 @@
+createIncome:
+    name: create-income-${sls:stage}
+    handler: src/handler/income.create
+    timeout: 10
+    events:
+      - httpApi:
+          path: incomes
+          method: POST
+
+
+getIncomes:
+    name: get_incomes-${sls:stage}
+    handler: src/handler/income.get
+    timeout: 2
+    events:
+      - httpApi:
+          path: incomes
+          method: GET
