@@ -22,10 +22,4 @@ package:
     - node_modules/**
     - venv/**
 
-provider:
-  name: aws
-  runtime: python2.7
-  stage: dev
-  region: us-east-1
-
 functions: ${file(./functions.yml)}
