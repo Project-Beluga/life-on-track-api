@@ -1,0 +1,15 @@
+createIncome:
+    handler: src/handler/income.create
+    events:
+      - http:
+          path: incomes
+          method: post
+          cors: true
+
+getIncomes:
+    handler: src/handler/income.get
+    events:
+      - http:
+          path: incomes
+          method: get
+          cors: true
