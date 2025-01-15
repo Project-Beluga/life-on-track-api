@@ -2,10 +2,10 @@ createIncome:
     name: create-income-${sls:stage}
     handler: src/handler/income.create
     events:
-      - http:
+      - httpApi:
           path: incomes
-          method: post
-          cors: true
+          method: POST
+
 
 getIncomes:
     name: get_incomes-${sls:stage}
@@ -15,4 +15,3 @@ getIncomes:
       - httpApi:
           path: incomes
           method: GET
-          cors: true
