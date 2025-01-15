@@ -8,7 +8,7 @@ createIncome:
           cors: true
 
 getIncomes:
-    name: get_incomes-$[sls:stage]
+    name: get_incomes-${sls:stage}
     handler: src/handler/income.get
     timeout: 2
     events:
