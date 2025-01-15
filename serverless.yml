@@ -3,7 +3,19 @@ service: life-on-track-api
 provider:
    name: aws
    runtime: python3.9
+   stage: ${opt:stage, 'dev'}
    region: us-east-2
+   enviroment:
+    AUTH0_DOMAIN: ${param:AUTH0_DOMAIN}
+    AUTH_AUDIENCE: ${param:AUTH0_AUDIENCE}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+              - rds-data:ExecuteStatement
+          Resource: 
+              - arn:aws:rds:${self:provider.region}:*:*
 
 plugins:
   - serverless-python-requirements

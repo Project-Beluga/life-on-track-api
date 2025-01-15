@@ -16,3 +16,9 @@ getIncomes:
       - httpApi:
           path: incomes
           method: GET
+
+auth0Authorizer:
+    handler: src.utils.authorizer.auth0_verify
+    environment:
+      AUTH0_DOMAIN: ${param:AUTH0_DOMAIN}
+      AUTH0_AUDIENCE: ${param:AUTH0_AUDIENCE}
