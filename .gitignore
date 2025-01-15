@@ -103,4 +103,4 @@ ENV/
 # serverless
 .serverless/
 .requirements/
-.node_modules/
+node_modules/
