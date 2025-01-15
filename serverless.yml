@@ -1,8 +1,14 @@
 service: life-on-track-api
 
+provider:
+   name: aws
+   runtime: python3.9
+   region: us-east-2
+
 plugins:
   - serverless-python-requirements
   - serverless-wsgi
+  - serverless-offline
 
 custom:
   wsgi:
