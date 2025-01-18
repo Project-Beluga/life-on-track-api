@@ -4,10 +4,11 @@ import os
 def connect_to_database():
     """Connect to the MySQL database."""
     return mysql.connector.connect(
-        host=os.getenv("MYSQL_HOST", "localhost"),
-        user=os.getenv("MYSQL_USER", "root"),
-        password=os.getenv("MYSQL_PASSWORD", ""),
-        database=os.getenv("MYSQL_DATABASE", "lifeontrack-dev")
+        host="127.0.0.1",
+        port=3307,
+        user="root",
+        password="",
+        database="lifeontrack-dev"
     )
 
 def run_migrations():
@@ -27,7 +28,7 @@ def run_migrations():
                 print(f"Executing: {command}")
                 cursor.execute(command)
         
-        connection.comit()
+        connection.commit()
         print("Migrations applied sucessfully.")
 
     except mysql.connector.Error as e:

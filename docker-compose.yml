@@ -9,7 +9,7 @@ services:
             MYSQL_ROOT_PASSWORD: ''
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         ports: 
-            - "3307:3307"
+            - "3307:3306"
         volumes:
             - mysql_data:/var/lib/mysql
         restart: unless-stopped
