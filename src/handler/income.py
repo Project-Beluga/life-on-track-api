@@ -2,7 +2,6 @@ import json
 import mysql.connector
 from utils.json_logger import setup_logger
 
-
 LOGGER = setup_logger()
 
 def get_db_connection():

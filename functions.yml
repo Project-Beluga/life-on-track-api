@@ -1,21 +1,29 @@
 createIncome:
-    name: create-income-${sls:stage}
-    handler: src/handler/income.create
-    timeout: 10
-    events:
-      - httpApi:
-          path: incomes
-          method: POST
-
+  name: create-income-${sls:stage}
+  handler: src/handler/income.create
+  timeout: 10
+  events:
+    - httpApi:
+        path: incomes
+        method: POST
 
 getIncomes:
-    name: get_incomes-${sls:stage}
-    handler: src/handler/income.get
-    timeout: 2
-    events:
-      - httpApi:
-          path: incomes
-          method: GET
+  name: get-incomes-${sls:stage}
+  handler: src/handler/income.get
+  timeout: 2
+  events:
+    - httpApi:
+        path: incomes
+        method: GET
+
+createFixedExpenses:
+  name: create-fixed-expenses-${sls:stage}
+  handler: src/handler/fixed_expenses.create
+  timeout: 10
+  events:
+    - httpApi:
+        path: expenses/fixed
+        method: POST
 
 createFixedExpenses:
     name: create-fixed-expenses-${sls:stage}
@@ -32,3 +40,19 @@ auth0Authorizer:
     environment:
       AUTH0_DOMAIN: ${param:AUTH0_DOMAIN}
       AUTH0_AUDIENCE: ${param:AUTH0_AUDIENCE}
+
+createFamily:
+  name: create-familly-${sls:stage}
+  handler: src/handler/familly.create_family
+  events:
+    - httpApi:
+        path: familly/create
+        method: POST
+
+acceptInvitation:
+  name: accept-invitation-${sls:stage}
+  handler: src/handler/familly.accept_invitation
+  events:
+    - httpApi:
+        path: familly/accept
+        method: POST
