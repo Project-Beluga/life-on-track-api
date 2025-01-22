@@ -17,7 +17,17 @@ getIncomes:
           path: incomes
           method: GET
 
+createFixedExpenses:
+    name: create-fixed-expenses-${sls:stage}
+    handler: src/handler/fixed_expenses.create
+    timeout: 10
+    events:
+      - httpApi:
+        path: expenses/fixed
+        method: POST
+
 auth0Authorizer:
+    name: auth0-authorizer-${sls:stage}
     handler: src.utils.authorizer.auth0_verify
     environment:
       AUTH0_DOMAIN: ${param:AUTH0_DOMAIN}
